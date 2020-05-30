@@ -1,8 +1,16 @@
 <?php
 
-$usuario = $_POST['txtUsuario'];
+$username = $_POST['txtUsuario'];
 $password = $_POST['txtPassword'];
 
+
+/*
+$usuario = Usuario::login($username, $password);
+
+if ($usuario->estaLogueado()) {
+	session_start();
+}
+*/
 
 if ($usuario == "admin" && $password == "123456") {
 	session_start();
