@@ -2,7 +2,7 @@
     <head></head>
     <body>
 
-        <form method="POST" action="login.php">
+        <form method="" action="login.php">
             <input type="text" name="txtUsuario">
             <br><br>
             <input type="text" name="txtPassword">
