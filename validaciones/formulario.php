@@ -1,26 +1,67 @@
+<?php
+
+session_start();
+
+?>
+
 <html>
-    <head></head>
+
+    <head>
+        
+        <title>Ejemplo de validacion</title>
+
+        <script type="text/javascript">
+            
+            function validarDatos() {
+                /*alert(88998989898);*/
+                var nombre = document.getElementById("txtNombre").value;
+                if (nombre.trim() == "") {
+                    alert("El nombre no debe estar vacio");
+                    return;
+                }
+
+                var form = document.getElementById("frmDatos");
+                form.submit();
+            }
+
+        </script>
+
+    </head>
+
     <body>
 
         <div align="center">
 
-            <form name="frmDatos" method="POST" action="procesar.php">
-                Nombre: <input type="text" name="txtNombre">
+            <?php if (isset($_SESSION['mensaje_error'])) : ?>
+
+                <font color="red">
+                    <?php echo $_SESSION['mensaje_error'] ?>
+                </font>
+
                 <br><br>
-                Apellido: <input type="text" name="txtApellido">
+
+            <?php
+                    unset($_SESSION['mensaje_error']);
+                endif;
+            ?>
+
+            <form name="frmDatos" id="frmDatos" method="POST" action="procesar.php">
+                Nombre: <input type="text" name="txtNombre" id="txtNombre">
+                <br><br>
+                Apellido: <input type="text" name="txtApellido" id="txtApellido">
                 <br><br>
                 Fecha Nacimiento: <input type="date" name="txtFechaNacimiento">
                 <br><br>
-                Celular: <input type="number" name="txtCelular">
+                Celular (370): <input type="number" name="txtCelular">
                 <br><br>
                 Sexo: 
-                <select name="cboSexo">
+                <select name="cboSexo" id="cboSexo">
                     <option value="0">Seleccionar</option>
-                    <option value="F">Femenino</option>
-                    <option value="M">Masculino</option>
+                    <option value="1">Femenino</option>
+                    <option value="2">Masculino</option>
                 </select>
                 <br><br>
-                <input type="submit" value="Guardar">
+                <input type="button" value="Guardar" onclick="validarDatos();">
             </form>
 
         </div>
