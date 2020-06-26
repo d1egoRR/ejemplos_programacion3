@@ -10,21 +10,7 @@ session_start();
         
         <title>Ejemplo de validacion</title>
 
-        <script type="text/javascript">
-            
-            function validarDatos() {
-                /*alert(88998989898);*/
-                var nombre = document.getElementById("txtNombre").value;
-                if (nombre.trim() == "") {
-                    alert("El nombre no debe estar vacio");
-                    return;
-                }
-
-                var form = document.getElementById("frmDatos");
-                form.submit();
-            }
-
-        </script>
+        <script type="text/javascript" src="js/validaciones.js"></script>
 
     </head>
 
@@ -45,8 +31,10 @@ session_start();
                 endif;
             ?>
 
+            <div id="mensajeError"></div>
+
             <form name="frmDatos" id="frmDatos" method="POST" action="procesar.php">
-                Nombre: <input type="text" name="txtNombre" id="txtNombre">
+                Nombre: <input type="text" name="txtNombre" id="txtNombre" maxlength="15">
                 <br><br>
                 Apellido: <input type="text" name="txtApellido" id="txtApellido">
                 <br><br>
