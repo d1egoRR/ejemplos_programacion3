@@ -50,6 +50,42 @@ class TestCalculo extends PHPUnit_Framework_TestCase
 		$this->assertEquals(150, $resultado);
 	}
 
+	public function testCalcularIvaMonto1500Esperando315() {
+		// Arrange - Definir un contexto (preparar)
+		$monto = 1500;
+
+		// Act = ejecuta el método que se quiere testear
+		$resultado = $this->calculo->calcularIva($monto);
+
+		// Assert = afirmar algo
+		$this->assertEquals(315, $resultado);
+
+	}
+
+	public function testCalcularIvaMonto0() {
+		// Arrange - Definir un contexto (preparar)
+		$monto = 0;
+
+		// Act = ejecuta el método que se quiere testear
+		$resultado = $this->calculo->calcularIva($monto);
+
+		// Assert = afirmar algo
+		$this->assertEquals(0, $resultado);
+
+	}
+
+	public function testCalcularIvaMontoNegativoEsperando0() {
+		// Arrange - Definir un contexto (preparar)
+		$monto = -50;
+
+		// Act = ejecuta el método que se quiere testear
+		$resultado = $this->calculo->calcularIva($monto);
+
+		// Assert = afirmar algo
+		$this->assertEquals(0, $resultado);
+
+	}
+
 }
 
 

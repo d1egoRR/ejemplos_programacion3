@@ -12,6 +12,14 @@ class Calculo
 		}
 		return $descuento;
 	}
+
+	public function calcularIva($monto) {
+		if ($monto <= 0) {
+			return 0;
+		}
+		$iva = $monto * 0.21;
+		return $iva;
+	}
 }
 
 
